@@ -15,7 +15,7 @@ import javax.inject.Named
 
 @Module
 @InstallIn(ActivityComponent::class)
-abstract class UserModule {
+class UserModule {
 
     @Provides
     @Named("firebase")
