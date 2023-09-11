@@ -10,6 +10,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.components.FragmentComponent
+import javax.inject.Named
 
 
 @Module
@@ -17,12 +18,14 @@ import dagger.hilt.android.components.FragmentComponent
 abstract class UserModule {
 
     @Provides
-    fun provideUserRepo():UserRepository {
+    @Named("firebase")
+    fun provideFirebaseRepo():UserRepository {
         return FirebaseRepo()
     }
 
     @Provides
-    fun provideUserRepo(loggerServer: LoggerServer):UserRepository {
+    @Named("sql")
+    fun provideSqlRepo(loggerServer: LoggerServer):UserRepository {
         return SqlRepo(loggerServer)
     }
 

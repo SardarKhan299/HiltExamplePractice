@@ -9,11 +9,13 @@ import com.hiltexample.R
 import com.hiltexample.repo.UserRepository
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+import javax.inject.Named
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
 
     @Inject
+    @Named("sql")
     lateinit var userRepo: UserRepository
 
 
